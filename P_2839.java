@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 public class P_2839 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
         int sugar = Integer.parseInt(br.readLine());
         int temp = 0, count = 0;
