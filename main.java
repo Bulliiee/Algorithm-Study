@@ -1,4 +1,4 @@
-// 테스트용임
+// 깃 테스트용
 
 public class main {
     public static void main(String[] args) {
