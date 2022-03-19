@@ -2,10 +2,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.PriorityQueue;
 
 public class P_2751 {
-    static int []sorted;
-    
+    static int []temp; // merge sort용
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -17,9 +18,9 @@ public class P_2751 {
         }
 
         
-        System.out.println("<Merge Sort>");
-
-        sorted = new int[input];
+        // arr을 얕은복사로 넘겼기에 그대로 출력
+        // System.out.println("<Merge Sort>");
+        temp = new int[arr.length];
         mergeSort(arr, 0, arr.length - 1);
         printArr(arr);
 
@@ -37,57 +38,42 @@ public class P_2751 {
         System.out.println(sb);
     }
 
-    // i: 정렬된 왼쪽 리스트의 인덱스
-    // j: 정렬된 오른쪽 리스트의 인덱스
-    // k: 정렬된 리스트의 인덱스
-    // 2개의 인접한 배열arr[left ~ mid], arr[mid + 1 ~ right]의 합병
-    // 실제 숫자들이 정렬되는 과정
-    static void merge(int []arr, int left, int mid, int right) {
-        int i, j, k, l;
-        i = left;
-        j = mid + 1;
-        k = left;
+    static void mergeSort(int []arr, int start, int end) {
+        if(start < end) {
+            int mid = (start + end) / 2;
+            mergeSort(arr, start, mid);
+            mergeSort(arr, mid + 1, end);
 
-        // 분할 정렬된 d의 합병
-        while(i <= mid && j <= right) {
-            if(arr[i] <= arr[j]) {
-                sorted[k++] = arr[i++];
+            int p = start;
+            int q = mid + 1;
+            int index = p;
+
+            while(p <= mid || q <= end) {
+                if(q > end || (p <= mid && arr[p] < arr[q])) {
+                    temp[index++] = arr[p++];
+                }
+                else {
+                    temp[index++] = arr[q++];
+                }
             }
-            else {
-                sorted[k++] = arr[j++];
+
+            for(int i = start; i <= end; i++) {
+                arr[i] = temp[i];
             }
-        }
-
-        // 남은 값들을 일괄 복사
-        if(i > mid) {
-            for(l = j; l <= right; l++) {
-                sorted[k++] = arr[l];
-            }
-        }
-        else {
-            for(l = i; l <= mid; l++) {
-                sorted[k++] = arr[l];
-            }
-        }
-
-        // 배열 sorted[](임시배열)의 리스트를 배열 list[]로 재복사
-        for(l = left; l <= right; l++) {
-            arr[l] = sorted[l];
-        }
-    }
-
-    static void mergeSort(int []arr, int left, int right) {
-        int mid;
-
-        if(left < right) {
-            mid = (left + right) / 2;   // 중간 위치 계산해 리스트를 균등분할
-            mergeSort(arr, left, mid);  // 앞쪽부분 리스트 정렬
-            mergeSort(arr, mid + 1, right); // 뒤쪽부분 리스트 정렬
-            merge(arr, left, mid, right);   // 정렬된 2개의 부분배열 합병
         }
     }
 
     static void heapSort(int []arr) {
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
 
+        // 배열 힙에 넣기
+        for(int i = 0; i < arr.length; i++) {
+            heap.add(arr[i]);
+        }
+
+        // 힙에서 우선순위 가장 높은 원소(root노드) 하나씩 뽑기
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = heap.poll();
+        }
     }
 }
