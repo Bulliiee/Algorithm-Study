@@ -65,6 +65,7 @@ public class P_2751 {
     }
 
     static void heapSort(int []arr) {
+        // 만약 높은숫자가 우선순위라면 매개변수로 Collections.reverseOrder() 추가
         PriorityQueue<Integer> heap = new PriorityQueue<>();
 
         // 배열 힙에 넣기
@@ -72,7 +73,7 @@ public class P_2751 {
             heap.add(arr[i]);
         }
 
-        // 힙에서 우선순위 가장 높은 원소(root노드) 하나씩 뽑기
+        // 힙에서 우선순위 가장 낮은 값 원소(root노드) 하나씩 뽑기
         for(int i = 0; i < arr.length; i++) {
             arr[i] = heap.poll();
         }
