@@ -1,4 +1,4 @@
-package Solving;
+package Solved;
 // A+B - 2 2558
 import java.io.BufferedReader;
 import java.io.IOException;
