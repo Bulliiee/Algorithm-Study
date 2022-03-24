@@ -1,6 +1,6 @@
 package Solved;
 
-// 좌표 정렬하기 11650
+// 좌표 정렬하기 2 11651
 // https://bullie.tistory.com/14
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,17 +29,17 @@ class Points implements Comparable<Points> {
     @Override
     public int compareTo(Points p) {
 
-        if(this.x > p.getX()) {
+        if(this.y > p.getY()) {
             return 1;
         }
-        else if(this.x < p.getX()) {
+        else if(this.y < p.getY()) {
             return -1;
         }
-        else if(this.x == p.getX()) {
-            if(this.y > p.getY()) {
+        else if(this.y == p.getY()) {
+            if(this.x > p.getX()) {
                 return 1;
             }
-            else if(this.y < p.getY()) {
+            else if(this.x < p.getX()) {
                 return -1;
             }
         }
@@ -48,7 +48,7 @@ class Points implements Comparable<Points> {
     }
 }
 
-public class P_11650 {
+public class P_11651 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
