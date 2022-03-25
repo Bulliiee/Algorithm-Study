@@ -1,4 +1,4 @@
-package Solving;
+package Solved;
 // 16진수 1550
 import java.io.BufferedReader;
 import java.io.IOException;
