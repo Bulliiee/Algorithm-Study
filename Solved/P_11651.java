@@ -10,11 +10,11 @@ import java.io.OutputStreamWriter;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-class Points implements Comparable<Points> {
+class Points2 implements Comparable<Points2> {
     private int x;
     private int y;
 
-    public Points(int x, int y) {
+    public Points2(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -27,7 +27,7 @@ class Points implements Comparable<Points> {
     }
 
     @Override
-    public int compareTo(Points p) {
+    public int compareTo(Points2 p) {
 
         if(this.y > p.getY()) {
             return 1;
@@ -65,7 +65,7 @@ public class P_11651 {
             y[i] = Integer.parseInt(st.nextToken());
         }
 
-        Points []points = sortPoints(x, y);
+        Points2 []points = sortPoints(x, y);
 
         for(int i = 0; i < input; i++) {
             sb.append(points[i].getX() + " " + points[i].getY() + "\n");
@@ -78,14 +78,14 @@ public class P_11651 {
     }
 
     // 힙정렬 사용
-    static Points []sortPoints(int []x, int []y) {
-        PriorityQueue<Points> pointsHeap = new PriorityQueue<>();
+    static Points2 []sortPoints(int []x, int []y) {
+        PriorityQueue<Points2> pointsHeap = new PriorityQueue<>();
         
         int count = x.length;
-        Points [] points = new Points[count];
+        Points2 [] points = new Points2[count];
 
         for(int i = 0; i < count; i++) {
-            pointsHeap.add(new Points(x[i], y[i]));
+            pointsHeap.add(new Points2(x[i], y[i]));
         }
 
         for(int i = 0; i < count; i++) {
