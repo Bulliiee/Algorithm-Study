@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 // 알고리즘 연습용
-// 백트래킹 N과 M (1) 15649
+// 백트래킹 N과 M (1) 15649 
 
 public class test {
     public static int []arr;
