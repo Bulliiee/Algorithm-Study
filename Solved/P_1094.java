@@ -1,4 +1,4 @@
-package Solving;
+package Solved;
 // 막대기
 import java.io.BufferedReader;
 import java.io.IOException;
