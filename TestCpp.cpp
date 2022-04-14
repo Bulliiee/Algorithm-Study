@@ -1,10 +1,16 @@
-// cpp vscode ì—°ë™ í…ŒìŠ¤íŠ¸
+// cpp vscode ?—°?™ ?…Œ?Š¤?Š¸
 #include <iostream>
 
 using namespace std;
 
+int d = 100;
+
 int main() {
-    cout << "Hello, world!" << endl;
+    int a = 2;
+    int b = 3;
+    int c = a + b;
+
+    cout << a << ", " << b << ", " << c << endl;
 
     return 0;
 }
