@@ -1,22 +1,17 @@
-// ios_base :: sync_with_stdio(false);
-// cin.tie(NULL);
 // 테스트용
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    ios_base :: sync_with_stdio(false);
+    ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int rep;
-    int a, b;
+    char a[10];
 
-    cin >> rep;
-    for(int i = 0; i < rep; i++) {
-        cin >> a >> b;
-        cout << a + b << '\n';
-    }
+    cin.get(a, 10, '.');    
+
+    cout << a << '\n';
 
     return 0;
 }
