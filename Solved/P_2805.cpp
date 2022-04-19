@@ -29,7 +29,7 @@ int getCutterHeight(int treeHeight[], int treeLength, int treeNum) {
     ll temp = 0;
 
     // 계속된 이분탐색으로 start가 end보다 크거나 같아지는 순간 종료
-    while(start <= end) {   
+    while(start <= end) {
         temp = 0;
 
         // 원하는 값이 mid기준으로 크거나 같아질 때마다 start와 end가 변화하며
