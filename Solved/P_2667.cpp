@@ -56,7 +56,7 @@ int numbering(int row, int col) {
             int newR = r + yMove[i];
             int newC = c + xMove[i];
 
-            if( (0 <= newR && newR <= n) && (0 <= newC && newC <= n) && map[newR][newC] == 1 && !visited[newR][newC]) {
+            if( (0 <= newR && newR < n) && (0 <= newC && newC < n) && map[newR][newC] == 1 && !visited[newR][newC]) {
                 visited[newR][newC] = true;
                 q.push(make_pair(newR, newC));
                 count++;
