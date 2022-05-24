@@ -1,6 +1,6 @@
 // 테스트용
 #include <iostream>
-#define MAX 10001
+#define MAX 101
 
 using namespace std;
 
