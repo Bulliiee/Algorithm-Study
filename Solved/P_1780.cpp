@@ -1,8 +1,6 @@
 // 종이의 개수
 #include <iostream>
 
-#define MAX 2187    // 3^7
-
 using namespace std;
 
 int count1 = 0, count2 = 0, count3 = 0; // -1, 0, 1 갯수
@@ -10,29 +8,31 @@ int count1 = 0, count2 = 0, count3 = 0; // -1, 0, 1 갯수
 void cutPaper(int **paper, int papersz, int startX, int startY) {
     int temp = paper[startY][startX];
     int tempSize = papersz / 3;
+    int nextX, nextY;
+    bool flag = true;   // papersz만큼 모두 같은 종이면 true
 
     for(int i = startY; i < startY + papersz; i++) {
         for(int j = startX; j < startX + papersz; j++) {
             if(paper[i][j] != temp) {
-                int nextX = j - (j % papersz);
-                int nextY = i - (i % papersz);
-                cutPaper(paper, tempSize, nextX, nextY);
-                cutPaper(paper, tempSize, nextX + tempSize, nextY);
-                cutPaper(paper, tempSize, nextX + tempSize * 2, nextY);
-                cutPaper(paper, tempSize, nextX, nextY + tempSize);
-                cutPaper(paper, tempSize, nextX + tempSize, nextY + tempSize);
-                cutPaper(paper, tempSize, nextX + tempSize * 2, nextY + tempSize);
-                cutPaper(paper, tempSize, nextX, nextY + tempSize * 2);
-                cutPaper(paper, tempSize, nextX + tempSize, nextY + tempSize * 2);
-                cutPaper(paper, tempSize, nextX + tempSize * 2, nextY + tempSize * 2);
-                return ;
+                nextX = j - (j % papersz);
+                nextY = i - (i % papersz);
+                flag = false;
+                break;
             }
+        }
+        if(!flag) {
+            break;
         }
     }
 
-    if(temp == -1) count1++; 
-    else if(temp == 0) count2++;
-    else count3++;
+    if(!flag)
+        for(int i = 0; i < 3; i++) 
+            for(int j = 0; j < 3; j++) 
+                cutPaper(paper, tempSize, nextX + (tempSize * j), nextY + (tempSize * i));
+    else
+        if(temp == -1) count1++; 
+        else if(temp == 0) count2++;
+        else count3++;
 }
 
 int main() {
