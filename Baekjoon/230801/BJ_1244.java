@@ -52,7 +52,7 @@ class Student {
 	}
 }
 
-public class P_1244 {
+public class BJ_1244 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
