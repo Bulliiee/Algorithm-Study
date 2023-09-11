@@ -1,12 +1,17 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * BJ_11265_끝나지않는파티_이항우.java
+ * 
+ * 
+ * @author 이항우
+ *
+ */
 public class Main {
 
 	static int size, customerNum;
 	static int[][] party;
-	
-	static int[][] distance;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,11 +21,6 @@ public class Main {
 		size = Integer.parseInt(st.nextToken());
 		customerNum = Integer.parseInt(st.nextToken());
 		party = new int[size+1][size+1];	// 0번 파티장 없음
-		distance = new int[size+1][size+1];	// 0번 파티장 없음
-		
-		for(int i = 1; i <= size; i++) {
-			Arrays.fill(distance[i], 1_000_000_001);
-		}
 		
 		for(int i = 1; i <= size; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -30,13 +30,6 @@ public class Main {
 		}
 		
 		getTakeTime();
-//		System.out.println();
-//		for(int i = 1; i <= size; i++) {
-//			for(int j = 1; j <= size; j++) {
-//				System.out.print(distance[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
 		
 		for(int i = 0; i < customerNum; i++) {
 			st = new StringTokenizer(br.readLine());
